@@ -1,0 +1,30 @@
+<?php echo $this->render('header.phtml'); ?>
+<?php echo $this->render('menu.phtml'); ?>
+
+<div id="contenido">
+
+	<h2><?php echo $this->escape($this->subtitle); ?></h2>
+	
+	<?php if( $this->pagina ): ?>
+	
+	  <?php if ($this->usuarioLogueado): ?>
+	      <div class="menu-admin">    
+	    	<a href="<?php echo $this->baseUrl; ?>/paginas/paginas/modificar/id/<?php echo $this->pagina->id;?>">Modificar</a>
+	      	<a href="<?php echo $this->baseUrl; ?>/paginas/paginas/eliminar/id/<?php echo $this->pagina->id;?>">Eliminar</a>
+	    </div><br>
+	  <?php endif; ?>
+	    <br />
+	  
+		<div id="pagina-titulo">  
+			<?php echo $this->escape(trim($this->pagina->titulo)); ?>
+		</div>
+		<div id="pagina-contenido">
+	    	<?php echo $this->pagina->contenido;?>
+	  	</div>  	
+	<?php else: ?>
+	  	Página no existente
+	<?php endif; ?>
+  
+</div>
+
+<?php echo $this->render('footer.phtml'); ?>

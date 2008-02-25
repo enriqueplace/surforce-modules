@@ -1,0 +1,27 @@
+<?php echo $this->render('header.phtml'); ?>
+<?php echo $this->render('menu.phtml'); ?>
+
+<div id="contenido">
+<h2><?php echo $this->escape($this->subtitle); ?></h2>
+
+<form action="<?php echo $this->baseUrl ?>/paginas/paginas/<?php echo $this->action; ?>" method="post">
+  <div>
+    <label for="titulo">titulo:</label>
+    <input type="text" name="titulo" size="100" value="<?php echo $this->escape(trim($this->pagina->titulo));?>"/>
+  </div>
+  <br>
+
+  <div>
+      <?php print $this->formFCKeditor( ' contenido' , $this->pagina->contenido); ?>
+    </div>
+  <br>
+
+
+  <div id="boton_formulario">
+    <input type="hidden" name="id" value="<?php echo $this->pagina->id; ?>" />
+    <input type="submit" name="add" value="<?php echo $this->escape($this->buttonText); ?>" />
+  </div>
+</form>
+</div>
+
+<?php echo $this->render('footer.phtml'); ?>

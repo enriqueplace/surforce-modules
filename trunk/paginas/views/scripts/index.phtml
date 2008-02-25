@@ -1,0 +1,54 @@
+<?php echo $this->render('header.phtml'); ?>
+<?php echo $this->render('menu.phtml'); ?>
+
+<div id="contenido">
+<h2><?php echo $this->escape($this->subtitle); ?></h2>
+
+<?php if ($this->usuarioLogueado): ?>
+    <div class="menu-admin">
+    	<a href="<?php echo $this->baseUrl; ?>/paginas/paginas/agregar">Agregar página</a>
+    </div><br>    
+<?php endif; ?>
+
+    <table>
+    <tr>
+        <th>id</th>
+        <th>fecha</th>
+         <th>título</th>
+
+
+    <?php if ($this->usuarioLogueado): ?>
+         <th colspan="4">Acciones</th>
+    <?php endif; ?>
+
+    </tr>
+    <?php
+    foreach( $this->paginas as $pagina ) : ?>
+            <tr>
+                <td><a href="<?php echo $this->baseUrl . "/paginas/paginas/ver/id/" . $pagina->id; ?> "><?php echo $this->escape($pagina->id);?></A></td>
+                <td nowrap><?php echo $this->escape( $this->dateFormat( $pagina->fecha ));?></td>
+                <td><a href="<?php echo $this->baseUrl . "/paginas/paginas/ver/id/" . $pagina->id; ?> "><?php echo $this->escape($pagina->titulo);?></A></td>
+
+                <?php if ($this->usuarioLogueado): ?>
+                    <td nowrap="nowrap">
+                    	<div class="menu-admin">
+      	                	<a href="<?php echo $this->baseUrl; ?>/paginas/paginas/ver/id/<?php echo $pagina->id;?>">Ver</a>
+                    		<a href="<?php echo $this->baseUrl; ?>/paginas/paginas/modificar/id/<?php echo $pagina->id;?>">Modificar</a>
+                    		<a href="<?php echo $this->baseUrl; ?>/paginas/paginas/eliminar/id/<?php echo $pagina->id;?>">Eliminar</a>
+                    		<a href="<?php echo $this->baseUrl; ?>/menu/menu/agregar/pagina/<?php echo $pagina->id;?>">Agregar al menú</a>
+                    	</div>
+                    </td>
+                <?php endif; ?>
+
+            </tr>
+    <?php endforeach; ?>
+    </table>
+
+<?php if ($this->usuarioLogueado): ?>
+    <br><div class="menu-admin">
+    	<a href="<?php echo $this->baseUrl; ?>/paginas/paginas/agregar">Agregar página</a>
+    </div><br>    
+<?php endif; ?>
+</div>
+
+<?php echo $this->render('footer.phtml'); ?>
