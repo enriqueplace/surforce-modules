@@ -1,0 +1,31 @@
+<?php echo $this->render('header.phtml'); ?>
+<?php echo $this->render('menu.phtml'); ?>
+
+<div id="contenido">
+    <h2><?php echo $this->escape($this->subtitle); ?></h2>
+
+    <?php if ($this->usuarioLogueado): ?>
+    	<div class="menu-admin">
+    		<a href="<?php echo $this->baseUrl; ?>/faqs/faqs/modificar/id/<?php echo $this->faq->id;?>">Modificar</a>
+            <a href="<?php echo $this->baseUrl; ?>/faqs/faqs/eliminar/id/<?php echo $this->faq->id;?>">Eliminar</a> 
+    	</div><br>
+    <?php endif; ?>
+
+	<table>
+		<TR>
+			<th><label for="id">Id:&nbsp;</label></th>
+			<td><?php echo $this->escape(trim($this->faq->id));?></td>
+		</TR>
+		<tr>
+			<th><label for="pregunta">pregunta:&nbsp;</label></th>
+			<td><?php echo $this->escape(trim($this->faq->pregunta));?></td>
+		</tr>
+		<tr>
+			<th><label for="respuesta">respuesta:&nbsp;</label></th>
+			<td><?php echo $this->escape($this->faq->respuesta);?></td>
+		</tr>
+	</table>
+
+</div>
+
+<?php echo $this->render('footer.phtml'); ?>
