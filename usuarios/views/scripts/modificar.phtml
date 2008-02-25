@@ -1,0 +1,16 @@
+<?php echo $this->render('header.phtml'); ?>
+<?php echo $this->render('menu.phtml'); ?>
+
+<div id="contenido">
+
+ <?php if(!empty($this->message)) :?>
+        <div id="mensaje">
+            <?php echo $this->escape($this->message);?>
+        </div>
+    <?php endif; ?>
+
+    <?php echo $this->render('usuarios/_form.phtml'); ?>
+
+</div>
+
+<?php echo $this->render('footer.phtml'); ?>
