@@ -1,0 +1,33 @@
+    <h2><?php echo $this->escape($this->subtitle); ?></h2>
+
+
+    <form action="<?php echo $this->baseUrl ?>/contacto/contacto/agregar" method="post">
+
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" size="50" value=""/>
+        </div>
+
+        <div>
+            <label for="email">E-Mail:</label>
+            <input type="text" name="email" size="50" value=""/>
+        </div>
+
+        <div>
+            <label for="email">Telefono:</label>
+            <input type="text" name="telefono" size="50" value="">
+        </div>
+
+        <div>
+            <label for="comentario">Comentario: </label><br>
+
+            <textarea name="comentario" rows="5" cols="50"></textarea>
+        </div>
+
+        <br>(*) Todos los campos son obligatorios <br><br>
+
+        <div id="boton_formulario">
+            <input type="hidden" name="id" value=""/>
+            <input type="submit" name="add" value="<?php echo $this->escape($this->buttonText); ?>" />
+        </div>
+    </form>

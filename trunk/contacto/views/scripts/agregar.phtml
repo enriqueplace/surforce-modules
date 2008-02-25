@@ -1,0 +1,18 @@
+<?php echo $this->render('header.phtml'); ?>
+<?php echo $this->render('menu.phtml'); ?>
+
+<div id="contenido">
+         
+    <?php if(!empty($this->message)) :?>
+        <div id="mensaje">
+            <?php echo $this->escape($this->message);?>
+        </div>
+    <?php endif; ?>		 
+		 
+    <?php 
+    //Redireccionamos al formulario de contacto
+	echo $this->render('contacto/_form.phtml'); 
+	?>
+
+</div>
+<?php echo $this->render('footer.phtml'); ?>
