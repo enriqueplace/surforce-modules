@@ -1,0 +1,21 @@
+<?php echo $this->render('header.phtml'); ?>
+<?php echo $this->render('menu.phtml'); ?>
+
+<div id="contenido">
+<h2><?php echo $this->escape($this->subtitle); ?></h2>
+
+    <?php
+    foreach( $this->faqs as $faq ) : ?>
+
+       <div id="faq-titulo"><strong>Pregunta:</strong> <?php echo $this->escape($faq->pregunta), " ({$this->escape($this->dateFormat( $faq->fecha )) })" ;?></div><br>
+       <div id="faq-respuesta"><strong>Respuesta:</strong>
+       	<?php echo $this->escape($faq->respuesta);?>
+       </div>
+        <br><br>
+
+
+    <?php endforeach; ?>
+
+</div>
+
+<?php echo $this->render('footer.phtml'); ?>
