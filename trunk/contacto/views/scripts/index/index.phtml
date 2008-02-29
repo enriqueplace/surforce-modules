@@ -1,0 +1,19 @@
+<?php echo $this->render('header.phtml'); ?>
+<?php echo $this->render('menu.phtml'); ?>
+
+Hola, son el index de contacto
+<br><br>
+
+<table border="1">
+    <?php foreach( $this->contactos as $contacto ) : ?>
+        <tr>
+          <td><?php echo $contacto->id ?></td>
+          <td><?php echo $contacto->nombre ?></td>
+          <td><?php echo $contacto->comentario ?></td>
+          <td><?php echo $contacto->fecha ?></td>
+          <td><?php echo $contacto->telefono ?></td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+<a href="<?php echo $this->baseUrl ?>/contacto/admin/">Admin</a>
+<?php echo $this->render('footer.phtml'); ?>
