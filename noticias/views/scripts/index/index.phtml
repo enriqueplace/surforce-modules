@@ -1,11 +1,6 @@
-<?php
-/**
- * FIXME: tema header, menu y footer no resuelto.
- */
-?>
 
-<?php //echo $this->render($this->base_path . DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'header.phtml'); ?>
-<?php //echo $this->render('menu.phtml'); ?>
+<?php echo $this->render('header.phtml'); ?>
+<?php echo $this->render('menu.phtml'); ?>
 
 Hola, son el index de Noticias
 <br><br>
@@ -18,5 +13,5 @@ Hola, son el index de Noticias
         </tr>
     <?php endforeach; ?>
 </table>
-
-<?php // echo $this->render('footer.phtml'); ?>
+<a href="<?php echo $this->baseUrl ?>/noticias/admin/">Admin</a>
+<?php echo $this->render('footer.phtml'); ?>
