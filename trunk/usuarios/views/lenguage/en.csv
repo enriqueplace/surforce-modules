@@ -1,0 +1,28 @@
+indextitle; Users Module
+indexadmintitle; User Administration
+veradmintitle; User info
+addusertitle; Add new user
+name; Name
+username; Username
+password; Password
+lastname; Lastname
+actions; Acctions
+nousers; There are no users
+adduser; Add user
+useradmin; User Administration
+modify; Modify
+delete; Delete
+add; Add
+email; E-Mail
+view; View
+status; Status
+created; Created
+modified; Modified
+obl; (*) Must complete
+btnsave; Save
+acceptdelete; Are you sure you want to delete the user
+yes; Yes
+no; No
+notfounduser; User not found
+restrictedaccess; Restricted Access
+

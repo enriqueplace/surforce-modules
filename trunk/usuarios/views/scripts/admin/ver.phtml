@@ -1,0 +1,53 @@
+<?php echo $this->render('header.phtml'); ?>
+<?php echo $this->render('menu.phtml'); ?>
+
+<div id="contenido">
+    <h2><?php echo $this->veradmintitle; ?></h2>
+    <?php if ($this->usuarioLogueado): ?>
+    	<div class="menu-admin">
+			<a href="<?php echo $this->baseUrl; ?>/usuarios/admin/modificar/id/<?php echo $this->usuario->id;?>"><?php echo $this->modify; ?></a>
+            <a href="<?php echo $this->baseUrl; ?>/usuarios/admin/eliminar/id/<?php echo $this->usuario->id;?>"><?php echo $this->delete; ?>r</a>
+    	</div><br>
+    <?php endif; ?>
+
+<table>
+	<tr>
+		<th><label for="usuario">Id:&nbsp;</label></th>
+		<td><?php echo $this->escape(trim($this->usuario->id));?></td>		
+	</tr>
+	<tr>
+		<th><label for="usuario"><?php echo $this->username; ?></label></th>
+		<td><?php echo $this->escape(trim($this->usuario->usuario));?></td>	
+	</tr>
+	<tr>
+		<th><label for="password"><?php echo $this->password; ?></label></th>
+		<td><?php echo $this->escape($this->usuario->password);?></td>	
+	</tr>
+	<tr>
+		<th><label for="nombre"><?php echo $this->name; ?></label></th>
+		<td><?php echo $this->escape($this->usuario->nombre);?></td>	
+	</tr>
+	<tr>
+		<th><label for="apellido"><?php echo $this->lastname; ?></label></th>
+		<td><?php echo $this->escape($this->usuario->apellido);?></td>	
+	</tr>
+	<tr>
+		<th><label for="mail"><?php echo $this->email; ?></label></th>
+		<td><?php echo $this->escape($this->usuario->mail);?></td>	
+	</tr>
+	<tr>
+		<th><label for="estado"><?php echo $this->status; ?></label></th>
+		<td><?php echo $this->escape($this->usuario->estado);?></td>	
+	</tr>
+	<tr>
+		<th><label for="creado"><?php echo $this->created; ?></label></th>
+		<td><?php echo $this->escape($this->usuario->creado);?></td>	
+	</tr>
+	<tr>
+		<th><label for="modificado"><?php echo $this->modified; ?></label></th>
+		<td><?php echo $this->escape($this->usuario->modificado);?></td>	
+	</tr>
+</table>
+</div>
+
+<?php echo $this->render('footer.phtml'); ?>
