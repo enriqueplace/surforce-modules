@@ -1,0 +1,30 @@
+indextitle; Modulo de Usuarios
+indexadmintitle; Administracion de Usuarios
+veradmintitle; Datos del usuario
+addusertitle; Agregar nuevo usuario
+deleteusertitle; Eliminar usuario
+name; Nombre
+username; Nombre de usuario
+password; Password
+lastname; Apellido
+actions; Acciones
+nousers; No existen usuarios
+adduser; Agregar Usuario
+useradmin; Administracion de usuarios
+modify; Modificar
+delete; Eliminar
+add; Agregar
+email; E-Mail
+view; Ver
+status; Estado
+created; Creado
+modified; Modificado
+obl; (*) Campos obligatorios
+btnsave; Guardar
+acceptdelete; Está seguro que quiere eliminar el usuario
+yes; si
+no; no
+notfounduser; No se pudo encontrar el usuario
+restrictedaccess; Acceso Restringido
+
+
