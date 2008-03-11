@@ -22,19 +22,30 @@ class Noticias_AdminController extends Zsurforce_Generic_Controller {
 			
 			$noticias = new Noticias();
 			
-			if(isset($p['titulo'])&&isset($p['fecha'])){
+			if( isset( $p['titulo'])  ){
 				$resultado = 
 					$noticias->insert(array(
-						'titulo'=>$p['titulo'],
-						'fecha'=>$p['fecha']
+						'titulo' 	=> $p['titulo'],
+						'contenido' 	=> $p['contenido'],
+						'contenido_ext' 	=> $p['contenido_ext']
 					));
-			}
-			
-			echo $resultado;
+			}		
+			$this->_redirect('/noticias/admin/');
+            return;
 		}
+		
+        $this->view->noticias = new stdClass();
+        $this->view->noticias->id = null;
+        $this->view->noticias->titulo = '';
+        $this->view->noticias->contenido = '';
+        $this->view->noticias->contenido_ext = '';
+
+        $this->view->action = "accion";
+        $this->view->buttonText = "botón texto";
+        $this->render();
 	}
 	function modificarAction()
-	{
+	{      
 	}
 	function eliminarAction()
 	{
