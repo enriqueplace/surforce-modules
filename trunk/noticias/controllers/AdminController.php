@@ -49,6 +49,32 @@ class Noticias_AdminController extends Zsurforce_Generic_Controller {
 	}
 	function eliminarAction()
 	{
+		$p = $this->getPostsFiltered();			
+		$noticias = new Noticias();
+			
+        if ($this->_request->isPost()) {
+        	
+        	
+            $id 	= (int)$p['id'];
+            $del 	= $p['del'];
+
+            if ( $del == 'Si' && $id > 0 ){
+                $where = 'id = ' . $id;
+                $rows_affected = $noticias->delete( $where );
+            }
+            $this->_redirect('/noticias/admin/');
+            return;
+        }
+        
+        $id = (int)$p['id'];
+        if ($id > 0) {
+        	$this->view->noticias = $noticias->fetchRow( 'id=' . $id );
+            if ($this->view->noticias->id > 0) {
+            	$this->render();
+                return;
+            }
+        }
+        $this->_redirect('/noticias/admin/');
 	}
 	function getPostsFiltered(){
 		
