@@ -1,0 +1,33 @@
+<form id="myForm" action="<?php echo $this->baseUrl ?>/autentication/admin/login" method="get">
+	<div id="error_login"></div>
+	<div id="form_box">
+    	<div>
+    		<label for="usuario">Usuario:</label>
+    		<input type="text" id="usuario" name="usuario" />
+    	</div>
+    	<div>
+    		<label for="password">Contrase&#241;a</label>
+    		<input type="password" id="password" name="password" />
+    	</div>
+		<input type="submit" name="button" id="submitter" />
+	</div>
+</form>
+<script>
+function	getRequestFromAutentication(response){
+	var objeto = Json.evaluate(response);
+	if(objeto.verificado	==	false){
+		$('error_login').innerHTML	= 'Datos incorrectos';			
+	}
+	else{
+		$('error_login').innerHTML	= 'Usuario Autenticado';
+		window.location = "<?php echo $this->baseUrl ?>/default/";
+	}
+}
+$('myForm').addEvent('submit', function(e) {
+	new Event(e).stop();
+	$('error_login').innerHTML	= 'Procesando ...';
+	this.send({
+		onComplete: getRequestFromAutentication
+	});
+});
+</script>
