@@ -2,16 +2,23 @@
 <?php echo $this->render('header.phtml'); ?>
 <?php echo $this->render('menu.phtml'); ?>
 
-Hola, son el index de Noticias
-<br><br>
+<div id="noticias">
 
-<table border="1">
-    <?php foreach( $this->noticias as $noticia ) : ?>
-        <tr>
-          <td><?php echo $noticia->id ?></td>
-          <td><?php echo $noticia->titulo ?></td>
-        </tr>
-    <?php endforeach; ?>
-</table>
-<a href="<?php echo $this->baseUrl ?>/noticias/admin/">Admin</a>
+	<br>
+	Hola, son el index de Noticias, si quieres ingresar al admin debes ir 
+	a <a href="<?php echo $this->baseUrl ?>/noticias/admin/">Admin</a>
+	<br><br>
+	
+	<table border="1">
+	    <?php foreach( $this->noticias as $noticia ) : ?>
+	        <tr>
+	          <td><?php echo $noticia->id ?></td>
+	          <td><?php echo $noticia->titulo ?></td>
+	        </tr>
+	    <?php endforeach; ?>
+	</table>
+	<br>
+
+</div>
+
 <?php echo $this->render('footer.phtml'); ?>
