@@ -1,7 +1,5 @@
 <?php
-// FIXME!
 require_once './application/autentication/models/Autentication.php';
-
 class Autentication_IndexController extends Zsurforce_Generic_Controller{
 	public	function indexAction()
 	{

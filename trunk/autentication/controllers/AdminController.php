@@ -1,9 +1,9 @@
 <?php
-// FIXME!
 require_once './application/autentication/models/Autentication.php';
 class Autentication_AdminController extends Zsurforce_Generic_Controller {
 
-	public function loginAction() {
+	public function loginAction() 
+	{
     	Zend_Loader::loadClass('Zend_Auth_Adapter_DbTable');
         $dbAdapter  = Zend_Registry::get('dbAdapter');
         $authAdapter = new Zend_Auth_Adapter_DbTable($dbAdapter);
@@ -23,7 +23,8 @@ class Autentication_AdminController extends Zsurforce_Generic_Controller {
 		echo $varsJson;
 		$this->_helper->viewRenderer->setNoRender();
 	}
-    public	function logoutAction(){
+    public	function logoutAction()
+    {
         Zend_Auth::getInstance()->clearIdentity();
         $this->_redirect('/');
     }
