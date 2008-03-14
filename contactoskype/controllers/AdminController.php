@@ -10,12 +10,12 @@ class Contactoskype_AdminController extends Zsurforce_Generic_Controller {
 		$lenguage = Zend_Registry::get ( 'config_sys' )->regional->lenguage;
 		
 		try {
-			$translate = new Zend_Translate ( 'csv', './application/contactoskype/views/lenguaje/' . $lenguage . '.csv', $lenguage );
+			$translate = new Zend_Translate ( 'csv', './application/contactoskype/views/lenguage/' . $lenguage . '.csv', $lenguage );
 		} catch ( Exception $e ) {
 			// File not found, no adapter class...
 			// General failure
 			$lenguage = "es";
-			$translate = new Zend_Translate ( 'csv', $this->view->base_path . '/application/contactoskype/views/lenguaje/' . $lenguage . '.csv', $lenguage );
+			$translate = new Zend_Translate ( 'csv', $this->view->base_path . '/application/contactoskype/views/lenguage/' . $lenguage . '.csv', $lenguage );
 		}
 		//Construyo de forma dinámica los textos para mostrar en la vista 
 		//de acuerdo a lo ingresado en el archivo de idioma
