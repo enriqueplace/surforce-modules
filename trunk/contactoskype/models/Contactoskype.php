@@ -25,5 +25,18 @@ class Contactoskype extends Zend_Db_Table {
 		$this->delete ( $where );
 	}
 
+	function cambiarEstado ($idContactoSkype, $estado)
+		{
+			$where = 'id = '. $idContactoSkype;
+			$resultado = $this->update ( array ('estado' => $estado), $where);
+			return $resultado;
+		}
+	
+		function buscarContactoSkype ($idContactoSkype)
+			{
+				$where = 'id = '. $idContactoSkype;
+				$contactoSkype = $this->fetchRow($where);
+				return $contactoSkype;
+			}
 }
 ?>
