@@ -1,0 +1,30 @@
+<?php echo $this->render('header.phtml'); ?>
+<?php echo $this->render('menu.phtml'); ?>
+	<div id="main"> 
+		<div id="menu_modulo">
+			<a href="<?php echo $this->baseUrl ?>/gastos/admin/agregar">Agregar Gasto</a>
+		</div>
+		<?php if(sizeof($this->gastos)>0): ?>
+			<table>
+				<tr class="header">
+					<td>Identificador</td>
+					<td>Nombre</td>
+					<td>Acciones</td>
+				</tr>
+			<?php foreach( $this->gastos as $gasto ) : ?>
+			<?php $c=(@$c)?0:1; ?>
+				<tr class="data<?php echo $c; ?>">
+					<td><?php echo $gasto->id_gasto; ?></td>
+					<td><?php echo $gasto->nombre; ?></td>
+					<td>
+						<a href="<?php echo $this->baseUrl ?>/gastos/admin/modificar/id_gasto/<?php echo $gasto->id_gasto ?>">Modificar</a>
+						<a href="<?php echo $this->baseUrl ?>/gastos/admin/eliminar/id_gasto/<?php echo $gasto->id_gasto ?> ">Eliminar</a>
+					</td>
+				</tr>
+			<?php endforeach; ?>
+			</table>
+		<?php else: ?>
+			<p>No existen Gastos actualmente.</p>
+		<?php endif; ?>
+	</div>
+<?php echo $this->render('footer.phtml'); ?>
