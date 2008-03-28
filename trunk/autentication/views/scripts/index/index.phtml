@@ -1,33 +1,49 @@
-<form id="myForm" action="<?php echo $this->baseUrl ?>/autentication/admin/login" method="get">
-	<div id="error_login"></div>
-	<div id="form_box">
-    	<div>
-    		<label for="usuario">Usuario:</label>
-    		<input type="text" id="usuario" name="usuario" />
-    	</div>
-    	<div>
-    		<label for="password">Contrase&#241;a</label>
-    		<input type="password" id="password" name="password" />
-    	</div>
-		<input type="submit" name="button" id="submitter" />
-	</div>
-</form>
-<script>
-function	getRequestFromAutentication(response){
-	var objeto = Json.evaluate(response);
-	if(objeto.verificado	==	false){
-		$('error_login').innerHTML	= 'Datos incorrectos';			
-	}
-	else{
-		$('error_login').innerHTML	= 'Usuario Autenticado';
-		window.location = "<?php echo $this->baseUrl ?>/default/";
-	}
-}
-$('myForm').addEvent('submit', function(e) {
-	new Event(e).stop();
-	$('error_login').innerHTML	= 'Procesando ...';
-	this.send({
-		onComplete: getRequestFromAutentication
-	});
-});
-</script>
+<?php echo $this->render('header.phtml'); ?>
+		<div id="main">
+			<form id="myForm" class="fValidator-form"  action="<?php echo $this->baseUrl ?>/autentication/admin/login" method="get">
+				<div id="error_login" class="error"></div>
+				<table id="form_box">
+			    	<tr>
+			    		<td><label for="usuario">Usuario:</label></td>
+			    		<td><input type="text" id="usuario" name="usuario" class="fValidate['required']" /></td>
+			    	</tr>
+			    	<tr>
+			    		<td><label for="password">Contrase&#241;a</label></td>
+			    		<td><input type="password" id="password" name="password" class="fValidate['required']" /></td>
+			    	</tr>
+			    	<tr>
+			    		<td>&nbsp;</td>
+						<td><input type="submit" name="button" id="submitter" /></td>
+			    	</tr>
+				</table>
+			</form>
+		</div>
+		<script>
+			function	getRequestFromAutentication(response){
+				var objeto = Json.evaluate(response);
+				$('error_login').style.display = 'block';
+				if(objeto.verificado	==	false){
+					$('error_login').innerHTML	= 'Datos incorrectos';
+				}
+				else{
+					$('error_login').innerHTML	= 'Usuario Autenticado';
+					window.location = "<?php echo $this->baseUrl ?>/noticias/";
+				}
+			}
+			$('myForm').addEvent('submit', function(e) {
+				if($('usuario').value==''){
+					return	false;
+				}
+				new Event(e).stop();
+				$('error_login').innerHTML	= 'Procesando ...';
+				this.send({
+					onComplete: getRequestFromAutentication
+				});
+			});
+		</script>
+		<script>
+			window.addEvent("domready", function() {  
+			     var exValidatorA = new fValidator("myForm");  
+			});
+		</script>
+<?php echo $this->render('footer.phtml'); ?>
