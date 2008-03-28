@@ -1,0 +1,26 @@
+<?php echo $this->render('header.phtml'); ?>
+<?php echo $this->render('menu.phtml'); ?>
+
+<?php if(sizeof($this->secciones)>0): ?>
+	<table border="1">
+		<tr>
+			<th>Identificador</th>
+			<th>Nombre</th>
+			<th>Acciones</th>
+		</tr>
+	<?php foreach( $this->secciones as $seccion ) : ?>
+		<tr>
+			<td><?php echo $seccion->id_seccion ?></td>
+			<td><?php echo $seccion->nombre ?></td>
+			<td>
+				<a href="<?php echo $this->baseUrl ?>/secciones/admin/modificar/id_seccion/<?php echo $seccion->id_seccion ?>">Modificar</a>
+				<a href="<?php echo $this->baseUrl ?>/secciones/admin/eliminar/id_seccion/<?php echo $seccion->id_seccion ?> ">Eliminar</a>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php else: ?>
+	<p>No existen Secciones actualmente.</p>
+<?php endif; ?>
+<a href="<?php echo $this->baseUrl ?>/secciones/admin/agregar">Agregar Seccion</a>
+<?php echo $this->render('footer.phtml'); ?>

@@ -1,0 +1,28 @@
+<?php echo $this->render('header.phtml'); ?>
+<?php echo $this->render('menu.phtml'); ?>
+	<div id="main"> 
+		<?php if(sizeof($this->conceptos)>0): ?>
+			<table>
+				<tr class="header">
+					<td>Identificador</td>
+					<td>T&iacute;tulo</td>
+					<td>Acciones</td>
+				</tr>
+			<?php foreach( $this->conceptos as $concepto ) : ?>
+			<?php $c=(@$c)?0:1; ?>
+				<tr class="data<?php echo $c; ?>">
+					<td><?php echo $concepto->id_concepto ?></td>
+					<td><?php echo $concepto->nombre ?></td>
+					<td>
+						<a href="<?php echo $this->baseUrl ?>/conceptos/admin/modificar/id_concepto/<?php echo $concepto->id_concepto ?>">Modificar</a>
+						<a href="<?php echo $this->baseUrl ?>/conceptos/admin/eliminar/id_concepto/<?php echo $concepto->id_concepto ?> ">Eliminar</a>
+					</td>
+				</tr>
+			<?php endforeach; ?>
+			</table>
+		<?php else: ?>
+			<p>No existen Conceptos actualmente.</p>
+		<?php endif; ?>
+		<a href="<?php echo $this->baseUrl ?>/conceptos/admin/agregar">Agregar Concepto</a>
+	</div>
+<?php echo $this->render('footer.phtml'); ?>

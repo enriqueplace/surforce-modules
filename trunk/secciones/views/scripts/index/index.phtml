@@ -1,0 +1,14 @@
+<?php echo $this->render('header.phtml'); ?>
+<?php echo $this->render('menu.phtml'); ?>
+		<div id="main"> 
+			<table border="1">
+				<?php foreach( $this->secciones as $seccion ) : ?>
+				<tr>
+					<td><?php echo $seccion->id_seccion ?></td>
+					<td><?php echo $seccion->titulo ?></td>
+				</tr>
+			    <?php endforeach; ?>
+			</table>
+			<a href="<?php echo $this->baseUrl ?>/secciones/admin/">Admin</a>
+		</div>
+<?php echo $this->render('footer.phtml'); ?>

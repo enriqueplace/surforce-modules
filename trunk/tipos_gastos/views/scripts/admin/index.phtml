@@ -1,0 +1,30 @@
+<?php echo $this->render('header.phtml'); ?>
+<?php echo $this->render('menu.phtml'); ?>
+	<div id="main"> 
+		<?php if(sizeof($this->tipos_gastos)>0): ?>
+			<table>
+				<tr class="header">
+					<td>Identificador</td>
+					<td>Concepto</td>
+					<td>Descripcion</td>
+					<td>Acciones</td>
+				</tr>
+			<?php foreach( $this->tipos_gastos as $tipos_gasto ) : ?>
+			<?php $c=(@$c)?0:1; ?>
+				<tr class="data<?php echo $c; ?>">
+					<td><?php echo $tipos_gasto->id_tipos_gasto ?></td>
+					<td><?php echo $this->conceptos[$tipos_gasto->id_concepto]; ?></td>
+					<td><?php echo $tipos_gasto->nombre ?></td>
+					<td>
+						<a href="<?php echo $this->baseUrl ?>/tipos_gastos/admin/modificar/id_tipos_gasto/<?php echo $tipos_gasto->id_tipos_gasto ?>">Modificar</a>
+						<a href="<?php echo $this->baseUrl ?>/tipos_gastos/admin/eliminar/id_tipos_gasto/<?php echo $tipos_gasto->id_tipos_gasto ?> ">Eliminar</a>
+					</td>
+				</tr>
+			<?php endforeach; ?>
+			</table>
+		<?php else: ?>
+			<p>No existen Tipos de gastos actualmente.</p>
+		<?php endif; ?>
+		<a href="<?php echo $this->baseUrl ?>/tipos_gastos/admin/agregar">Agregar Tipos de gastos</a>
+	</div>
+<?php echo $this->render('footer.phtml'); ?>
